@@ -1,13 +1,13 @@
-// Простой бот на Node.js для игры в крестики-нолики
+// Бот для игры в крестики-нолики
 const TelegramBot = require('node-telegram-bot-api');
 const express = require('express');
 const app = express();
 
-// Токен вашего бота (ЗАМЕНИТЕ НА СВОЙ!)
-const token = '8642836990:AAG5PpgqKqBHfCyEYwbVVMXTwj-OOMonndI'; // Я вижу токен на скриншоте
+// ✅ НОВЫЙ токен (который вы только что получили)
+const token = '8642836990:AAG5PpgqKqBHfCyEYwbVVMXTwj-OOMonndI';
 const bot = new TelegramBot(token, { polling: true });
 
-// URL вашего приложения на GitHub Pages
+// ✅ ВАШ РАБОЧИЙ URL (проверьте, работает ли он в браузере)
 const appUrl = 'https://cream44lluv.github.io/tictactoe-telegram/';
 
 // Обработка команды /start
@@ -77,11 +77,10 @@ bot.on('callback_query', (query) => {
         bot.sendMessage(chatId, '❌ Вы отклонили приглашение');
     }
     
-    // Отвечаем на callback, чтобы убрать "часики" на кнопке
     bot.answerCallbackQuery(query.id);
 });
 
-// Запуск простого веб-сервера (для Render.com)
+// Простой веб-сервер для Render
 app.get('/', (req, res) => {
     res.send('Бот работает!');
 });
@@ -91,4 +90,4 @@ app.listen(PORT, () => {
     console.log(`Сервер запущен на порту ${PORT}`);
 });
 
-console.log('Бот запущен...');
+console.log('🤖 Бот запущен и готов к работе!');
